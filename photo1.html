@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polaroid 1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-main">
+  <div class="single-wrapper">
+    <div class="single-card">
+      <img src="images/photo1.jpg" alt="Polaroid 1" class="single-photo" />
+      <div class="single-caption">
+        <h1>The Little You 🩷</h1>
+        <p>“She was adorable then, <br>she’s amazing now ✨”</p>
+      </div>
+    </div>
+
+    <a href="index.html" class="back-link">← All Polaroids</a>
+
+    <audio id="song" src="audio/song1.mp3"></audio>
+  </div>
+
+  <script>
+    const audio = document.getElementById("song");
+
+    // Try autoplay on load
+    window.addEventListener("load", () => {
+      audio.play().catch(() => {
+        console.log("Autoplay blocked; waiting for tap.");
+      });
+    });
+
+    // Make sure first tap plays (in case autoplay is blocked)
+    document.addEventListener(
+      "click",
+      () => {
+        if (audio.paused) {
+          audio.play().catch(() => {});
+        }
+      },
+      { once: true }
+    );
+  </script>
+</body>
+</html>
